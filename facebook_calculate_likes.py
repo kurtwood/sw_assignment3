@@ -1,3 +1,4 @@
+# This is a test by Timo
 # First, let's query for all of the likes in your social
 # network and store them in a slightly more convenient
 # data structure as a dictionary keyed on each friend's
