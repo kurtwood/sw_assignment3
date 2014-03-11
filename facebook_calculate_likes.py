@@ -7,7 +7,7 @@ from prettytable import PrettyTable
 from collections import Counter
 
 # Create a connection to the Graph API with your access token
-g = facebook.GraphAPI('CAACEdEose0cBAK3UIzHv6Du13RD7AZCFV0UDPPfBZBPMvk8uKNni8iKbPT9rGmVZCZAx3C3ZBLIW1lZBEkTjDu8gZBaEb6orDi7etAavuHbc7ZAJYw6dpasSjFVwzfHgdvEPPFosNZBwVg7LPep1kx5XRhiszKYplOwsmXQdocZBa1EBbeXCdcZC6zsyQjqYl74pKgZD')
+g = facebook.GraphAPI('')
 
 friends = g.get_connections("me", "friends")['data']
 
