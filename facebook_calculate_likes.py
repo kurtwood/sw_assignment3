@@ -1,4 +1,4 @@
-# This is a test by Timo
+ #This is a test by Timo
 # First, let's query for all of the likes in your social
 # network and store them in a slightly more convenient
 # data structure as a dictionary keyed on each friend's
@@ -6,9 +6,10 @@
 import facebook
 from prettytable import PrettyTable
 from collections import Counter
+import secret
 
 # Create a connection to the Graph API with your access token
-g = facebook.GraphAPI('')
+g = facebook.GraphAPI(secret.ACCESS_TOKEN)
 
 friends = g.get_connections("me", "friends")['data']
 
