@@ -4,6 +4,7 @@
 # name.
 import facebook
 import secret # This file contains the AUTH token
+import json
 from prettytable import PrettyTable
 from collections import Counter
 
@@ -16,6 +17,11 @@ friends = g.get_connections("me", "friends")['data']
 likes = { friend['name'] : g.get_connections(friend['id'], "likes")['data']
         for friend in friends }
 #print likes
+
+statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data']
+        for friend in friends }
+print statuses
+#json.dumps(statuses, sort_keys=True, indent=2)
 
 friends_likes = Counter([like['name']
         for friend in likes
