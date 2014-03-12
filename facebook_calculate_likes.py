@@ -4,9 +4,14 @@
 # name.
 import facebook
 import secret # This file contains the AUTH token
-import json
+from functools import reduce
 from prettytable import PrettyTable
 from collections import Counter
+
+def reorder(result, item):
+    for y in item[1]:
+        result.setdefault(y['id'], list()).append(item[0])
+    return result
 
 # Create a connection to the Graph API with your access token
 
@@ -17,6 +22,9 @@ friends = g.get_connections("me", "friends")['data']
 likes = { friend['name'] : g.get_connections(friend['id'], "likes")['data']
         for friend in friends }
 #print likes
+
+#reordered_likes = reduce(reorder, likes.items(), {})
+#print reordered_likes
 
 statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data']
         for friend in friends }
