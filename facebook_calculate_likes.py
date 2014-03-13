@@ -28,6 +28,23 @@ reordered_likes_per_category = reduce(reorder, likes.items(), {})
 print "========= NEW LIST"
 print reordered_likes_per_category
 
+like_per_category_per_person = dict() # new dictionnary
+
+for friend in friends:
+    # one empty dictionnary per friend
+    like_per_category_per_person[friend['name']] = dict()
+
+for categ in reordered_likes_per_category:
+    # for all relevant categories
+    for name in {friend['name'] for friend in friends}:
+        # for all friends, identified by name
+        counter = 0
+        for person in reordered_likes_per_category[categ]:
+            if person == name:
+                counter += 1
+            # count how many times they like a thing of that category
+        like_per_category_per_person[name][categ] = counter
+
 statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data']
         for friend in friends }
 #print statuses
