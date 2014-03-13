@@ -73,6 +73,15 @@ friends_likes = Counter([like['name']
                 for like in likes[friend]
                         if like.get('name')])
 
+likers_number_of_statuses = dict()
+# in the end : { category : number of statuses of all people who are active in that category }
+
+for categ in likers:
+    status_counter = 0
+    for friend in likers[categ]:
+        status_counter += len(statuses[friend])
+    likers_number_of_statuses[categ] = status_counter
+
 pt = PrettyTable(field_names=['Name', 'Freq'])
 pt.align['Name'], pt.align['Freq'] = 'l', 'r'
 [ pt.add_row(fl) for fl in friends_likes.most_common(10) ]
