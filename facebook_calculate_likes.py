@@ -29,13 +29,17 @@ print "========= NEW LIST"
 print reordered_likes_per_category
 
 like_per_category_per_person = dict() # new dictionnary
+like_per_category_per_person['Mean'] = dict()
 
 for friend in friends:
     # one empty dictionnary per friend
     like_per_category_per_person[friend['name']] = dict()
 
+number_of_friends = len(friends)
+
 for categ in reordered_likes_per_category:
     # for all relevant categories
+    categ_counter = 0
     for name in {friend['name'] for friend in friends}:
         # for all friends, identified by name
         counter = 0
@@ -44,6 +48,8 @@ for categ in reordered_likes_per_category:
                 counter += 1
             # count how many times they like a thing of that category
         like_per_category_per_person[name][categ] = counter
+        categ_counter += counter
+    like_per_category_per_person['Mean'][categ] = categ_counter / number_of_friends
 
 statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data']
         for friend in friends }
