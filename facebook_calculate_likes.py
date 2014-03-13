@@ -35,7 +35,7 @@ for friend in friends:
     # one empty dictionnary per friend
     like_per_category_per_person[friend['name']] = dict()
 
-number_of_friends = len(friends)
+number_of_friends = float(len(friends))
 
 for categ in reordered_likes_per_category:
     # for all relevant categories
