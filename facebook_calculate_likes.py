@@ -26,7 +26,7 @@ print likes
 
 reordered_likes_per_category = reduce(reorder, likes.items(), {})
 print "========= NEW LIST"
-print reordered_likes
+print reordered_likes_per_category
 
 statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data']
         for friend in friends }
