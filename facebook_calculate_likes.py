@@ -56,6 +56,18 @@ statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data'
 #print statuses
 #json.dumps(statuses, sort_keys=True, indent=2)
 
+likers = dict()
+for categ in reordered_likes_per_category:
+    likers[categ] = []
+
+mean = like_per_category_per_person['Mean']
+
+for person in like_per_category_per_person:
+    if (person != 'Mean'):
+        for categ in reordered_likes_per_category:
+            if (like_per_category_per_person[person][categ] > mean[categ]):
+                likers[categ].append(person)
+
 friends_likes = Counter([like['name']
         for friend in likes
                 for like in likes[friend]
