@@ -21,14 +21,16 @@ friends = g.get_connections("me", "friends")['data']
 
 likes = { friend['name'] : g.get_connections(friend['id'], "likes")['data']
         for friend in friends }
-#print likes
+print "========= LIKES"
+print likes
 
-#reordered_likes = reduce(reorder, likes.items(), {})
-#print reordered_likes
+reordered_likes_per_category = reduce(reorder, likes.items(), {})
+print "========= NEW LIST"
+print reordered_likes
 
 statuses = { friend['name'] : g.get_connections(friend['id'], "statuses")['data']
         for friend in friends }
-print statuses
+#print statuses
 #json.dumps(statuses, sort_keys=True, indent=2)
 
 friends_likes = Counter([like['name']
@@ -40,7 +42,7 @@ pt = PrettyTable(field_names=['Name', 'Freq'])
 pt.align['Name'], pt.align['Freq'] = 'l', 'r'
 [ pt.add_row(fl) for fl in friends_likes.most_common(10) ]
 
-print 'Top 10 likes amongst friends'
+print '====== Top 10 likes amongst friends'
 print pt
 
 
@@ -53,5 +55,5 @@ pt2 = PrettyTable(field_names=['Category', 'Freq'])
 pt2.align['Category'], pt2.align['Freq'] = 'l', 'r'
 [ pt2.add_row(flc) for flc in friends_likes_categories.most_common(10) ]
 
-print "Top 10 like categories for friends"
+print "====== Top 10 like categories for friends"
 print pt2
