@@ -10,7 +10,7 @@ from collections import Counter
 
 def reorder(result, item):
     for y in item[1]:
-        result.setdefault(y['id'], list()).append(item[0])
+        result.setdefault(y['category'], list()).append(item[0])
     return result
 
 # Create a connection to the Graph API with your access token
