@@ -4,8 +4,10 @@
 # name.
 import facebook
 import secret # This file contains the AUTH token
+import operator
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
 import matplotlib.pyplot as plt
-import random
 from functools import reduce
 from prettytable import PrettyTable
 from collections import Counter
@@ -84,7 +86,26 @@ for categ in likers:
         status_counter += len(statuses[friend])
     likers_number_of_statuses[categ] = status_counter
 
-pt = PrettyTable(field_names=['Name', 'Freq'])
+# put them in order
+likers_number_of_statuses_ordered = sorted(likers_number_of_statuses.iteritems(), key=operator.itemgetter(1))
+
+# prepare the graph
+categories = []
+number_of_statuses_per_category = []
+error = []
+for i in likers_number_of_statuses_ordered:
+    categories.append(i[0])
+    number_of_statuses_per_category.append(i[1])
+    error.append(0)
+
+y_pos = np.arange(len(categories)) # for the full graph
+plt.barh(y_pos, number_of_statuses_per_category, xerr=error, align='center', alpha=0.4)
+plt.yticks(y_pos, categories)
+plt.xlabel('Number of likes for all people active in a given category')
+plt.title('SW - Assignment 3')
+plt.show()
+
+"""pt = PrettyTable(field_names=['Name', 'Freq'])
 pt.align['Name'], pt.align['Freq'] = 'l', 'r'
 [ pt.add_row(fl) for fl in friends_likes.most_common(10) ]
 
@@ -104,18 +125,7 @@ pt2.align['Category'], pt2.align['Freq'] = 'l', 'r'
 print "====== Top 10 like categories for friends"
 print pt2
 
-labels = []
-sizes = []
-colors = []
-available_colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
-explode = []
-
-for nb in likers_number_of_statuses:
-    labels.append(nb)
-    sizes.append(likers_number_of_statuses[nb])
-    colors.append(random.choice(available_colors))
-    explode.append(0.1)
-
 plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=False, startangle=90)
 
 #plt.show()
+"""
