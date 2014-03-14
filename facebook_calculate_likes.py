@@ -4,6 +4,8 @@
 # name.
 import facebook
 import secret # This file contains the AUTH token
+import matplotlib.pyplot as plt
+import random
 from functools import reduce
 from prettytable import PrettyTable
 from collections import Counter
@@ -101,3 +103,19 @@ pt2.align['Category'], pt2.align['Freq'] = 'l', 'r'
 
 print "====== Top 10 like categories for friends"
 print pt2
+
+labels = []
+sizes = []
+colors = []
+available_colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
+explode = []
+
+for nb in likers_number_of_statuses:
+    labels.append(nb)
+    sizes.append(likers_number_of_statuses[nb])
+    colors.append(random.choice(available_colors))
+    explode.append(0.1)
+
+plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=False, startangle=90)
+
+#plt.show()
