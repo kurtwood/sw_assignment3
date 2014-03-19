@@ -1,9 +1,6 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+import facebook
+import secret
 
-__author__="moviuro"
-__date__ ="$Mar 19, 2014 10:42:48 AM$"
+g = facebook.GraphAPI(secret.ACCESS_TOKEN)
 
-if __name__ == "__main__":
-    print "Hello World"
+
