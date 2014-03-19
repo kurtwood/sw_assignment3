@@ -16,101 +16,27 @@
 	<body>
 		<div id="wrapper">
 
-			<div id="left-menu">
-					
-					<center><img src="img/logo.png" alt="Logo" style="margin-top: -2%;">
-					<!-- <input type="txt" class="form-control" style="width: 80% !important;"> -->
-					</center>
-					
-					<ul style="margin-top: 10%;">
-						<li style="font-size: 18px; font-weight: 600;">Menu:</li>
-						<li><a href="">Likes</a></li>
-						<li><a href="">Statuses</a></li>
-						<li><a href="">Activity</a></li>
-						<li><a href=""></a></li>
-					</ul>
-
-			</div>
+			<?php include 'menu.php'; ?>
 
 			<div id="content">
 
-				<div id="likes" class="container">
-					<div class='row'>
-						<div class='col-lg-12'>
-							<h1>SW Facebook activity checker</h1>
-							<p></p>
-						</div>
-					</div>
+				<div id="likes">
+		
+					<h1>Number of likes  <small> for all people active in a given category</small></h1>
 
-					<div class="btn-group">
-		  				<a href="#likes" anchorLink><button class="btn">Likes</button></a>
-		  				<a href="#statuses" anchorLink><button class="btn">Statuses</button></a>
-		  				<a href="#activity" anchorLink><button class="btn">Activity</button></a>
-					</div>
 
-					<div class='row'>
-						<div class='col-lg-6'>
-							<h3>Number of likes  <small> for all people active in a given category</small></h3>
-							<p></p>
-							
 							<div class='canvas'>
 								<canvas id="doughnut" height="450" width="450"></canvas>
 							</div>
-						</div>
-					</div>
+
 				</div>	
 
-				<div id="statuses" class="container">
-					<div class='row'>
-						<div class='col-lg-12'>
-							<h1>SW Facebook activity checker</h1>
-							<p></p>
-						</div>
-					</div>
-
-					<div class="btn-group">
-		  				<a href="#likes" anchorLink><button class="btn">Likes</button></a>
-		  				<a href="#statuses" anchorLink><button class="btn">Statuses</button></a>
-		  				<a href="#activity" anchorLink><button class="btn">Activity</button></a>
-					</div>
 				
-					<div class="row">
-						<div class='col-lg-6'>
-							<h3>Number of statuses <small> for all people active in a given category </small> </h3>
-							<p></p>
-							
-							<div class='canvas'>
-								<canvas id="pie" height="450" width="450"></canvas>
-							</div>
-						</div>	
-					</div>
-				</div>	
-
-				<div id="activity" class="container">
-					<div class='row'>
-						<div class='col-lg-12'>
-							<h1>SW Facebook activity checker</h1>
-							<p></p>
-						</div>
-					</div>
-
-					<div class="btn-group">
-		  				<a href="#likes" anchorLink><button class="btn">Likes</button></a>
-		  				<a href="#statuses" anchorLink><button class="btn">Statuses</button></a>
-		  				<a href="#activity" anchorLink><button class="btn">Activity</button></a>
-					</div>
-
-					<div class="row">
-						<div class='col-lg-6'>
-							<h3>Activity <small> for all friends throughout the week </small> </h3>
-							<p></p>
-
-							<div class='canvas'>
-								<canvas id="bar" height="450" width="450"></canvas>
-							</div>
-						</div>
-					</div>
 				</div>
+
+			<div id="menu-right">
+					
+			</div>
 
 			</div>
 
