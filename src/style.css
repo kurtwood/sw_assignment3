@@ -1,0 +1,67 @@
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+}
+
+#wrapper{
+	height: 100%;
+}
+
+#left-menu{
+	float: left;
+	width: 15%;
+	height: 100%;
+	background: #5bc0de;
+	margin-right: 5%;
+	padding-top: 3%;
+
+}
+
+#menu-right{
+	width: 30%;
+	float: right;
+	margin-top: 7%;
+}
+
+#menu-right button{
+	width: 150px;
+	margin-bottom: 15px;
+}
+
+#menu-right ul{
+	list-style-type: none;
+}
+
+#left-menu ul{
+	list-style-type: none;
+	width: 80%;
+	text-align: center;
+}
+
+#left-menu ul li{
+	margin: 0;
+	height: 50px;
+	line-height: 50px;
+}
+
+#left-menu ul li a {  
+	display: block;
+	border-top: 1px solid #fff;
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+	font-weight: 300;
+}
+
+#left-menu ul li a:hover {  
+	background-color: #78CBE4;
+	text-decoration: none;
+}
+
+#content{
+	float: left;
+	width: 50%;
+}
