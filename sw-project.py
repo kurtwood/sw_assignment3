@@ -53,3 +53,17 @@ for i in range(0,7):
 for like_time in likes_times:
     if (now - like_time).total_seconds() < seconds_per_week:
         likes_last_week[like_time.weekday()] += 1
+
+statuses_per_weekday = []
+for i in range(0,7):
+    statuses_per_weekday.append([])
+
+for status_time in statuses_times:
+    statuses_per_weekday[status_time.weekday()].append(status_time)
+
+likes_per_weekday = []
+for i in range(0,7):
+    likes_per_weekday.append([])
+
+for like_time in likes_times:
+    likes_per_weekday[like_time.weekday()].append(like_time)
