@@ -93,4 +93,5 @@ for day in range(7):
         return_list_total.append(get_number(day, 4 * hour, 4 * (hour + 1), likes_per_weekday) +
                            get_number(day, 4 * hour, 4 * (hour + 1), statuses_per_weekday))
 
-print (activity_last_week + return_list_total)
+print (activity_last_week)
+print (return_list_total)
