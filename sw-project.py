@@ -38,12 +38,18 @@ now = datetime.now()
 # How many...
 seconds_per_week = 7 * 24 * 60 * 60
 
-statuses_last_week = [0, 0, 0, 0, 0, 0, 0]
+statuses_last_week = dict()
+for i in range(0,7):
+    statuses_last_week[i] = 0
+
 for status_time in statuses_times:
     if (now - status_time).total_seconds() < seconds_per_week:
         statuses_last_week[status_time.weekday()] += 1
 
-likes_last_week = [0, 0, 0, 0, 0, 0, 0]
+likes_last_week = dict()
+for i in range(0,7):
+    likes_last_week[i] = 0
+
 for like_time in likes_times:
     if (now - like_time).total_seconds() < seconds_per_week:
         likes_last_week[like_time.weekday()] += 1
