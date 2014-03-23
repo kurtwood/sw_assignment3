@@ -1,12 +1,15 @@
 # Import the SDK
 import facebook
 # import the secret token
-import secret
+#import secret
 # For date and time operations
 from datetime import datetime, date, time
+# To use the cmdline arguments
+import sys
 
 # open connection
-g = facebook.GraphAPI(secret.ACCESS_TOKEN)
+#g = facebook.GraphAPI(secret.ACCESS_TOKEN)
+g = facebook.GraphAPI(sys.argv[1])
 
 # retrieve friends
 friends = g.get_connections("me", "friends")['data']
