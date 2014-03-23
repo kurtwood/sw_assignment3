@@ -10,6 +10,8 @@ g = facebook.GraphAPI(secret.ACCESS_TOKEN)
 
 # retrieve friends
 friends = g.get_connections("me", "friends")['data']
+if len(friends) > 50:
+    friends = friends[:50]
 
 # retrieve their likes
 likes = {friend['name']: g.get_connections(friend['id'], "likes")['data']
