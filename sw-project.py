@@ -38,35 +38,40 @@ now = datetime.now()
 # How many...
 seconds_per_week = 7 * 24 * 60 * 60
 
-statuses_last_week = dict()
-for i in range(0,7):
-    statuses_last_week[i] = 0
+statuses_last_week = []
+for i in range(0, 7):
+    statuses_last_week.append(0)
 
 for status_time in statuses_times:
     if (now - status_time).total_seconds() < seconds_per_week:
         statuses_last_week[status_time.weekday()] += 1
 
-likes_last_week = dict()
-for i in range(0,7):
-    likes_last_week[i] = 0
+likes_last_week = []
+for i in range(0, 7):
+    likes_last_week.append(0)
 
 for like_time in likes_times:
     if (now - like_time).total_seconds() < seconds_per_week:
         likes_last_week[like_time.weekday()] += 1
 
+activity_last_week = []
+for i in range(7):
+    activity_last_week.append(likes_last_week[i] + statuses_last_week[i])
+
 statuses_per_weekday = []
-for i in range(0,7):
+for i in range(0, 7):
     statuses_per_weekday.append([])
 
 for status_time in statuses_times:
     statuses_per_weekday[status_time.weekday()].append(status_time)
 
 likes_per_weekday = []
-for i in range(0,7):
+for i in range(0, 7):
     likes_per_weekday.append([])
 
 for like_time in likes_times:
     likes_per_weekday[like_time.weekday()].append(like_time)
+
 
 def get_number(day, hour_from, hour_to, sorted_list):
     result = 0
@@ -74,3 +79,13 @@ def get_number(day, hour_from, hour_to, sorted_list):
         if (time.hour < hour_to) and (time.hour >= hour_from):
             result += 1
     return result
+
+
+return_list_total = []
+
+for day in range(7):
+    for hour in range(6):
+        return_list_total.append(get_number(day, 4 * hour, 4 * (hour + 1), likes_per_weekday) +
+                           get_number(day, 4 * hour, 4 * (hour + 1), statuses_per_weekday))
+
+print (activity_last_week + return_list_total)
