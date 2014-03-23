@@ -67,3 +67,10 @@ for i in range(0,7):
 
 for like_time in likes_times:
     likes_per_weekday[like_time.weekday()].append(like_time)
+
+def get_number(day, hour_from, hour_to, sorted_list):
+    result = 0
+    for time in sorted_list[day]:
+        if (time.hour < hour_to) and (time.hour >= hour_from):
+            result += 1
+    return result
