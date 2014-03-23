@@ -86,12 +86,14 @@ def get_number(day, hour_from, hour_to, sorted_list):
     return result
 
 
-return_list_total = []
+return_list_total = dict()
 
 for day in range(7):
+    return_list_total[day] = []
     for hour in range(6):
-        return_list_total.append(get_number(day, 4 * hour, 4 * (hour + 1), likes_per_weekday) +
+        return_list_total[day].append(get_number(day, 4 * hour, 4 * (hour + 1), likes_per_weekday) +
                            get_number(day, 4 * hour, 4 * (hour + 1), statuses_per_weekday))
 
 print (activity_last_week)
-print (return_list_total)
+for day in range(7):
+    print (return_list_total[day])
